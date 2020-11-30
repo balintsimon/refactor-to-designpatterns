@@ -8,8 +8,9 @@ public abstract class GokuState {
     protected Goku goku;
     protected TransformationLevel transformationLevel;
 
-    public GokuState(Goku goku) {
+    public GokuState(Goku goku, TransformationLevel transformationLevel) {
         this.goku = goku;
+        this.transformationLevel = transformationLevel;
     }
 
     public abstract TransformationLevel powerUp();
@@ -21,4 +22,8 @@ public abstract class GokuState {
     public abstract int attackValue();
 
     public abstract boolean tryToDestroyFrieza(Frieza frieza);
+
+    protected TransformationLevel getTransformationLevel() {
+        return transformationLevel;
+    }
 }

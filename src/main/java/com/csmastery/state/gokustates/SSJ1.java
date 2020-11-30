@@ -6,18 +6,18 @@ import com.csmastery.state.TransformationLevel;
 
 public class SSJ1 extends GokuState {
     public SSJ1(Goku goku) {
-        super(goku);
+        super(goku, TransformationLevel.SSJ1);
     }
 
     @Override
     public TransformationLevel powerUp() {
         goku.changeState(new SSJ2(goku));
-        return TransformationLevel.SSJ2;
+        return super.getTransformationLevel();
     }
 
     @Override
     public TransformationLevel getCurrentLevel() {
-        return TransformationLevel.SSJ1;
+        return this.getTransformationLevel();
     }
 
     @Override
