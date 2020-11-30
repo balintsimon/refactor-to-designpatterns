@@ -1,39 +1,36 @@
 package com.csmastery.state;
 
 import com.csmastery.state.gokustates.Fighter;
-import com.csmastery.state.gokustates.GokuState;
+import com.csmastery.state.gokustates.CurrentState;
 
 
 public class Goku {
 
-  private GokuState gokuState;
-
-  public void changeState(GokuState gokuState) {
-    this.gokuState = gokuState;
-  }
+  private CurrentState currentState;
 
   Goku() {
-    this.gokuState = new Fighter(this);
+    this.currentState = new Fighter();
   }
 
   public TransformationLevel powerUp() {
-    return gokuState.powerUp();
+    this.currentState = currentState.nextState();
+    return currentState.getTransformationLevel();
   }
 
   public TransformationLevel getCurrentLevel() {
-    return gokuState.getCurrentLevel();
+    return currentState.getTransformationLevel();
   }
 
   public String hairColor() {
-    return gokuState.hairColor();
+    return currentState.getHairColor();
   }
 
   public int attackValue() {
-    return gokuState.attackValue();
+    return currentState.getAttackValue();
   }
 
   public boolean tryToDestroyFrieza(Frieza frieza) {
-    return gokuState.tryToDestroyFrieza(frieza);
+    return currentState.tryToDestroyFrieza(frieza);
   }
 
 }

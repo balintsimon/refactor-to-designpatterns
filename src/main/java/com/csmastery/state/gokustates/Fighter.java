@@ -1,20 +1,18 @@
 package com.csmastery.state.gokustates;
 
 import com.csmastery.state.Frieza;
-import com.csmastery.state.Goku;
 import com.csmastery.state.TransformationLevel;
 
-public class Fighter extends GokuState {
-    public Fighter(Goku goku) {
-        super(goku, TransformationLevel.FIGHTER);
+public class Fighter extends CurrentState {
+    public Fighter() {
+        this.transformationLevel = TransformationLevel.FIGHTER;
         this.hairColor = "Black";
         this.attackValue = 9000;
     }
 
     @Override
-    public TransformationLevel powerUp() {
-        goku.changeState(new SSJ1(goku));
-        return super.getTransformationLevel();
+    public CurrentState nextState() {
+        return new SSJ1();
     }
 
     @Override
