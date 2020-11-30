@@ -7,27 +7,14 @@ import com.csmastery.state.TransformationLevel;
 public class SSJ2 extends GokuState {
     public SSJ2(Goku goku) {
         super(goku, TransformationLevel.SSJ2);
+        this.hairColor = "Even More Yellow";
+        this.attackValue = 100_000_000;
     }
 
     @Override
     public TransformationLevel powerUp() {
         goku.changeState(new SSJ3(goku));
         return super.getTransformationLevel();
-    }
-
-    @Override
-    public TransformationLevel getCurrentLevel() {
-        return this.getTransformationLevel();
-    }
-
-    @Override
-    public String hairColor() {
-        return "Even More Yellow";
-    }
-
-    @Override
-    public int attackValue() {
-        return 100_000_000;
     }
 
     @Override

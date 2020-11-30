@@ -7,6 +7,8 @@ import com.csmastery.state.TransformationLevel;
 public abstract class GokuState {
     protected Goku goku;
     protected TransformationLevel transformationLevel;
+    protected String hairColor;
+    protected int attackValue;
 
     public GokuState(Goku goku, TransformationLevel transformationLevel) {
         this.goku = goku;
@@ -15,11 +17,17 @@ public abstract class GokuState {
 
     public abstract TransformationLevel powerUp();
 
-    public abstract TransformationLevel getCurrentLevel();
+    public TransformationLevel getCurrentLevel() {
+        return this.transformationLevel;
+    }
 
-    public abstract String hairColor();
+    public String hairColor() {
+        return this.hairColor;
+    }
 
-    public abstract int attackValue();
+    public int attackValue() {
+        return this.attackValue;
+    }
 
     public abstract boolean tryToDestroyFrieza(Frieza frieza);
 
